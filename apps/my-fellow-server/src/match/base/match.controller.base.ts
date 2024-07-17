@@ -45,6 +45,9 @@ export class MatchControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: MatchCreateInput,
+  })
   async createMatch(@common.Body() data: MatchCreateInput): Promise<Match> {
     return await this.service.createMatch({
       data: {
@@ -154,6 +157,9 @@ export class MatchControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: MatchUpdateInput,
   })
   async updateMatch(
     @common.Param() params: MatchWhereUniqueInput,

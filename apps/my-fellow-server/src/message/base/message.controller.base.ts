@@ -45,6 +45,9 @@ export class MessageControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: MessageCreateInput,
+  })
   async createMessage(
     @common.Body() data: MessageCreateInput
   ): Promise<Message> {
@@ -136,6 +139,9 @@ export class MessageControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: MessageUpdateInput,
   })
   async updateMessage(
     @common.Param() params: MessageWhereUniqueInput,

@@ -45,6 +45,9 @@ export class ProfileControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: ProfileCreateInput,
+  })
   async createProfile(
     @common.Body() data: ProfileCreateInput
   ): Promise<Profile> {
@@ -168,6 +171,9 @@ export class ProfileControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: ProfileUpdateInput,
   })
   async updateProfile(
     @common.Param() params: ProfileWhereUniqueInput,
